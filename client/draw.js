@@ -4,6 +4,7 @@ var socket;
 var ctx, canvas;
 // save somewhere else?
 // allow user to select different color/generate new color
+// shift color over time
 var userColor;
 
 // make this another shape?
@@ -22,8 +23,8 @@ function initDraw() {
     ctx = canvas.getContext("2d");
     userColor = getPastelColor();
 
-    //socket.emit('addDraw', {"x" : "test"});
     setInterval(fade, 100);
+    //setInterval(updateUserColor, 100);
 
     //canvas.addEventListener("mousedown", onMouseDown);
     //canvas.addEventListener("mouseup", onMouseUp);
@@ -54,18 +55,20 @@ function onMouseOut(e) {
 function setupSocket() {
     // recieve socket events
     socket.on('addDraw', function(circle) {
-        console.log('recd draw');
         drawCircle(circle);
     });
 }
 
 // adjust circle radius
 function drawCircle(circle) {
-    console.log('drawing circle');
     ctx.strokeStyle = circle.color;
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI);
     ctx.stroke();
+}
+
+function updateUserColor() {
+    // gradual user gradients..?
 }
 
 /*
