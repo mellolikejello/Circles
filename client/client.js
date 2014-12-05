@@ -94,14 +94,6 @@ function getRandomColor() {
     return color;
 }
 
-//http://stackoverflow.com/questions/43044/algorithm-to-randomly-generate-an-aesthetically-pleasing-color-palette
-function getPastelColor() {
-    var r = (Math.round(Math.random()* 127) + 127).toString(16);
-    var g = (Math.round(Math.random()* 127) + 127).toString(16);
-    var b = (Math.round(Math.random()* 127) + 127).toString(16);
-    return '#' + r + g + b;
-}
-
 function hideError() {
     setTimeout(function() {
         $("#errorMessage").hide(500);

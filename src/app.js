@@ -60,3 +60,15 @@ server = app.listen(port, function(err) {
 	}
 	console.log('Listening on port ' + port);
 });
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+    onUpdate(socket);
+});
+
+var onUpdate = function(socket) {
+    socket.on('addDraw', function(data) {
+        io.emit('addDraw', data);
+    });
+}

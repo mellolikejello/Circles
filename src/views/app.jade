@@ -1,9 +1,11 @@
 extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/draw.css")
 block body
     header
-        button#generate(type="button") Generate Random Square
         a#logout(href="/logout" class="button") Log out
     section#draw
-        if draws
-            each val in draws
-                div(style="width:#{val.width * 30}px; height:100px; background-color:#{val.color}; float:left;")
+        canvas(width="800" height="500")
+block append scripts
+    script(src="/assets/socket.io.js")
+    script(src="/assets/draw.js")
