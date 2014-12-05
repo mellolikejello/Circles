@@ -3,9 +3,14 @@ block append style
     link(rel="stylesheet", type="text/css", href="/assets/draw.css")
 block body
     header
+        button#switchColor Switch Color
         a#logout(href="/logout" class="button") Log out
+        // include radius range?
+        p Fade Rate
+            // take out of paragraph and properly space
+            input#fadeRange(type="range")
     section#draw
-        canvas(width="800" height="500")
+        canvas(width="1000" height="500")
 block append scripts
     script(src="/assets/socket.io.js")
     script(src="/assets/draw.js")
