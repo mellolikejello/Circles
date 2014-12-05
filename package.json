@@ -4,7 +4,7 @@
   "description": "IGME-430 Final Project",
   "main": "./src/app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
     "pretest": "jshint ./src",
     "test": "echo \"tests complete\""
   },
