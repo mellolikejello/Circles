@@ -1,0 +1,9 @@
+extends ./base.jade
+block body
+    header
+        button#generate(type="button") Generate Random Square
+        a#logout(href="/logout" class="button") Log out
+    section#draw
+        if draws
+            each val in draws
+                div(style="width:#{val.width * 30}px; height:100px; background-color:#{val.color}; float:left;")

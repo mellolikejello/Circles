@@ -1,0 +1,11 @@
+extends ./base.jade
+block body
+    a.button(href="/signup" id="loginSignup") Sign up
+    section#login
+        div#errorMessage
+        form#loginForm(class="mainForm", name="loginForm", action="/login", method="POST")
+            label(for="username") Username
+            input#user(type"text",  name="username", placeholder="username")
+            label(for="password") Password
+            input#pass(type="password", name="pass", placeholder="password")
+            button#loginSubmit(class="formSubmit", type="button") Sign in

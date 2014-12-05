@@ -1,0 +1,26 @@
+{
+  "name": "Final_Project",
+  "version": "1.0.0",
+  "description": "IGME-430 Final Project",
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js",
+    "pretest": "jshint ./src",
+    "test": "echo \"tests complete\""
+  },
+  "author": "Melody Kelly",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "compression": "^1.2.0",
+    "connect-redis": "^2.1.0",
+    "crypto": "0.0.3",
+    "express": "^4.10.1",
+    "express-session": "^1.9.1",
+    "jade": "^1.7.0",
+    "jshint": "^2.5.10",
+    "mongoose": "^3.8.18",
+    "path": "^0.4.9",
+    "underscore": "^1.7.0"
+  }
+}

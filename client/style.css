@@ -1,0 +1,181 @@
+* {
+    color: #808080;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button, .button {
+    background-clip: padding-box;
+    border: none;
+    border-color: #A0A0A0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    background-color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+}
+
+button:hover, .button:hover {
+    background-color: #F0F0F0;
+}
+
+form button:hover {
+    background-color: white;
+    opacity: 0.8;
+}
+
+.button {
+    text-decoration: none;
+}
+
+header {
+    margin: 10px 0;
+}
+
+#generate {
+    margin-left: 5px;
+}
+
+#logout {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    clear: both;
+    margin-left: 5px;
+}
+
+#draw {
+    clear: both;
+}
+
+#draw div {
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+#draw div:hover {
+    //opacity: 0.8;
+    /* http://daneden.github.io/animate.css/ */
+    animation: drawact 1s;
+    -webkit-animation: drawact 1s;
+}
+
+@-webkit-keyframes drawact {
+    0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+      }
+
+      100% {
+        opacity: 0;
+      }
+}
+
+@keyframes drawact {
+    0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+      }
+
+      100% {
+        opacity: 0;
+      }
+}
+
+form label {
+    clear: left;
+    color: white;
+    display: block;
+}
+
+#signup {
+    background-color: rgb(170, 170, 236);
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    height: 250px;
+    margin: auto;
+    margin-top: 15%;
+    text-align: center;
+    width: 50%;
+    min-width: 220px;
+}
+
+#signupForm {
+    padding-top: 30px;
+}
+
+form input{
+    text-align: center;
+}
+
+#signupSubmit {
+    clear: left;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}
+
+#login {
+    background-color: rgb(170, 170, 236);
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    height: 50%;
+    max-height: 300px;
+    min-height: 160px;
+    margin: auto;
+    margin-top: 15%;
+    text-align: center;
+    width: 50%;
+    min-width: 220px;
+}
+
+#loginForm {
+    padding-top: 30px;
+}
+
+#loginSubmit {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}
+
+#loginSignup {
+    background-color: rgb(170, 170, 236);
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 15;
+    right: 15;
+}
+
+#loginSignup:hover {
+    opacity: 0.8;
+}
+
+#errorMessage {
+    background-color: rgb(236, 170, 170);
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+    color: white;
+    display: none;
+    margin: auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
