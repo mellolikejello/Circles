@@ -10,6 +10,8 @@ var userColor, userRad;
 var refreshRate;
 var fadeOpacity;
 
+var strokeWidth;
+
 var FADE_MIN = 0.01;
 var FADE_RANGE = 0.25;
 
@@ -19,6 +21,7 @@ function Circle(x, y, color) {
     this.y = y;
     this.color = color;
     this.r = userRad;
+    this.strokeWidth = strokeWidth;
 }
 
 function initDraw() {
@@ -28,13 +31,17 @@ function initDraw() {
     var colorBtn = document.querySelector("#switchColor");
     var refreshRange = document.querySelector("#refreshRange");
     var fadeRange = document.querySelector("#fadeRange");
+    //var strokeRange = document.querySelector("#strokeRange");
     canvas = document.querySelector("canvas");
     ctx = canvas.getContext("2d");
+
+    onResize();
 
     userRad = 25;
     fadeOpacity = 0.1;
     userColor = getPastelColor();
     refreshRate = 100;
+    strokeWidth = 1;
 
     setTimeout(fade, refreshRate);
     //setInterval(updateUserColor, 100);
@@ -48,15 +55,31 @@ function initDraw() {
 
     colorBtn.addEventListener("click", switchColor);
     fadeRange.addEventListener("change", changeFadeOpacity);
+    //strokeRange.addEventListener("change", changeStrokeWidth);
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
 }
 
-function onMouseDown(e) {
-
+function onKeyDown(e) {
+    // indicate that this will happen
+    if(e.keyCode == 32) {
+        // hide header
+        console.log("toggle");
+        var header = document.querySelector("header");
+        if(header.className != "") {
+            header.className = "";
+        } else {
+            header.className = "hide";
+        }
+    }
 }
 
-function onMouseUp(e) {
-
+function onResize(e) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
+
 
 function onMouseOver(e) {
     var x = e.pageX - canvas.offsetLeft;
@@ -66,12 +89,12 @@ function onMouseOver(e) {
     socket.emit('addDraw', circle);
 }
 
-function onMouseOut(e) {
-
-}
-
 function changeFadeOpacity(e) {
     fadeOpacity = FADE_MIN + (e.target.value/100) * FADE_RANGE;
+}
+
+function changeStrokeWidth(e) {
+    fadeOpacity = e.target.value;
 }
 
 function onMouseWheel(e) {
@@ -98,6 +121,7 @@ function setupSocket() {
 // adjust circle radius
 function drawCircle(circle) {
     ctx.strokeStyle = circle.color;
+    ctx.lineWidth = strokeWidth;
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI);
     ctx.stroke();
