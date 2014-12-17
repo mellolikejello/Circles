@@ -65,35 +65,6 @@ $(document).ready(function() {
     });
 });
 
-function getRandomBox() {
-    var box;
-
-    // add in later
-    var canvas = document.querySelector("canvas") || {width: 500, height: 500};
-    var w = canvas.width;
-    var h = canvas.height;
-
-    var width = Math.ceil(Math.random() * 10);
-    var x = Math.floor(Math.random() * w);
-    var y = Math.floor(Math.random() * h);
-    //var color = getRandomColor();
-    var color = getPastelColor();
-
-    box = "width=" + width + "&x=" + x + "&y=" + y + "&color=" + color;
-
-    return box;
-}
-
-//http://stackoverflow.com/questions/1484506/random-color-generator-in-javascript
-function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
 function hideError() {
     setTimeout(function() {
         $("#errorMessage").hide(500);
