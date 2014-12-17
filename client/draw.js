@@ -13,7 +13,7 @@ var fadeOpacity;
 var strokeWidth;
 
 var FADE_MIN = 0.01;
-var FADE_RANGE = 0.25;
+var FADE_RANGE = 0.10;
 
 // make this another shape?
 function Circle(x, y, color) {
@@ -39,12 +39,13 @@ function initDraw() {
 
     userRad = 25;
     fadeOpacity = 0.1;
-    userColor = getPastelColor();
-    refreshRate = 100;
+    //userColor = getPastelColor();
+    userColor = 0;
+    refreshRate = 50;
     strokeWidth = 1;
 
     setTimeout(fade, refreshRate);
-    //setInterval(updateUserColor, 100);
+    setInterval(updateUserColor, 100);
 
     //canvas.addEventListener("mousedown", onMouseDown);
     //canvas.addEventListener("mouseup", onMouseUp);
@@ -120,7 +121,8 @@ function setupSocket() {
 
 // adjust circle radius
 function drawCircle(circle) {
-    ctx.strokeStyle = circle.color;
+    //ctx.strokeStyle = circle.color;
+    ctx.strokeStyle = "hsl(" + circle.color + ", 80%, 50%)";
     ctx.lineWidth = strokeWidth;
     ctx.beginPath();
     ctx.arc(circle.x, circle.y, circle.r, 0, 2*Math.PI);
@@ -129,10 +131,13 @@ function drawCircle(circle) {
 
 function updateUserColor() {
     // gradual user gradients..?
+    userColor+=1;
+    if(userColor >= 360) userColor = 0;
 }
 
 function switchColor() {
-    userColor = getPastelColor();
+    //userColor = getPastelColor();
+    userColor += 100;
 }
 
 /*
